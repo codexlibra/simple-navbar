@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="description" content="Simple navbar made with HTML, CSS and JavaScript.">
+	<meta name="author" content="Codex Libra">
+	<title>Simple Navbar</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="container">
+			<a href="#" class="navbar-brand">Codex Libra</a>
+			<ul class="navbar-list">
+				<li class="navbar-item">
+					<a href="#" class="navbar-link active">Home</a>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="navbar-link">About</a>
+				</li>
+				<li class="navbar-item-dropdown">
+					<span class="navbar-link">Services</span>
+					<i class='bx bx-chevron-down link-dropdown'></i>
+					<ul class="dropdown-menu">
+						<li class="dropdown-item">
+							<a class="dropdown-link" href="#">Action</a>
+						</li>
+						<li class="dropdown-item">
+							<a class="dropdown-link" href="#">Another action</a>
+						</li>
+						<li class="dropdown-item-submenu">
+							<span class="dropdown-link">Something else here</span>
+							<i class='bx bx-chevron-right link-dropdown'></i>
+							<ul class="submenu-left">
+								<li class="submenu-item">
+									<a class="submenu-link" href="#">Sub Action</a>
+								</li>
+								<li class="submenu-item">
+									<a class="submenu-link" href="#">Another sub action</a>
+								</li>
+								<li class="submenu-item">
+									<a class="submenu-link" href="#">Something sub action else here</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="navbar-link">Contact</a>
+				</li>
+				<li class="navbar-item">
+					<a href="#" class="navbar-link">Feedback</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<script src="js/script.js"></script>
+</body>
+
+</html>
