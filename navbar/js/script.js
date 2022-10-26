@@ -1,47 +1,44 @@
 /*!
- * Simple Navbar  v1.0.0
+ * Simple Navbar  v1.1.0
  * Copyright 2022 Codex Libra
  * Licensed under MIT (https://github.com/codexlibra/simple-navbar/blob/master/LICENSE)
  */
-var dropdown = document.querySelector(".dropdown-item-submenu");
-var dropdown_submenu = dropdown.children[2];
+let sidebar_items_dropdown = document.querySelectorAll(".navbar-item-dropdown");
+let item_dropdown1 = sidebar_items_dropdown[1];
+let dropdown_submenu = item_dropdown1.children[1];
 
-dropdown.addEventListener("mouseenter", function() {
-	// get the current class of the submenu (right | left)
-	var submenu_class_list = document.querySelector(".submenu");
-	var submenu_class = "";
+let sidebar_links_dropdown = document.querySelectorAll(".navbar-link-dropdown");
+let link_dropdown_submenu = sidebar_links_dropdown[1];
 
-	if (submenu_class_list != null) {
-		submenu_class = "submenu";
-	} else {
-		submenu_class = "submenu-left";
-	}
+let screen_width = window.innerWidth;
 
-	// get the width of the current screen
-	let screen_width = window.innerWidth; 
-	
-	// get the width of the current screen with scroll
+link_dropdown_submenu.addEventListener('mouseenter', navbarDropdown);
+
+function navbarDropdown() {
+	let submenu_class = dropdown_submenu.classList[0];
+
+	screen_width = window.innerWidth;
 	let scroll_screen_width = document.documentElement.scrollWidth;
 
-	// if the width of the screen with scroll is greater than the first, set the submenu on the left side
 	if (scroll_screen_width > screen_width) {		
-		if (submenu_class == "submenu"){
-			dropdown_submenu.classList.replace("submenu", "submenu-left");
+		// If the scrolling screen width is greater than the screen width, set the submenu on the left side
+		if (submenu_class == "dropdown-submenu") {
+			dropdown_submenu.classList.replace("dropdown-submenu", "dropdown-submenu-left");
 		}
 	} else {
-		// set the submenu on the right side
-		if (submenu_class != "submenu"){
-			dropdown_submenu.classList.replace("submenu-left", "submenu");
-			submenu_class = "submenu";
+		// First set the submenu to the right, then check if it should be moved
+		if (submenu_class != "dropdown-submenu") {
+			dropdown_submenu.classList.replace("dropdown-submenu-left", "dropdown-submenu");
+			submenu_class = "dropdown-submenu";
 		}
-		// again check if the submenu position fits on the screen
-		scroll_screen_width = document.documentElement.scrollWidth;
 
+		scroll_screen_width = document.documentElement.scrollWidth;
+		// Check again if the screen width with scroll is greater than the screen width, to prevent the submenu from going off the screen when hovering over the link again
 		if (scroll_screen_width > screen_width) {
-			// set the submenu on the left side
-			if (submenu_class == "submenu"){
-				dropdown_submenu.classList.replace("submenu", "submenu-left");
+			if (submenu_class == "dropdown-submenu"){
+				// Set the submenu on the left side
+				dropdown_submenu.classList.replace("dropdown-submenu", "dropdown-submenu-left");
 			}
 		}
 	}
-});
+}
